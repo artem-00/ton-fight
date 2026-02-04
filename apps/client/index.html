@@ -147,6 +147,18 @@
             alert('Рулетка пока недоступна в демо-режиме');
         }
 
+        function generateDepositComment(userId) {
+            return `deposit_user_${userId}`;
+        }
+
+        function sendTonDeposit() {
+            const userId = /* получение из Telegram initData */;
+            const comment = generateDepositComment(userId);
+            
+            // Отправка через Ton Connect
+            alert(`Отправьте TON на адрес:\n${MY_TON_WALLET}\nС комментарием: ${comment}`);
+        }
+
         // Загрузка при старте
         loadBalance();
     </script>

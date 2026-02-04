@@ -1,11 +1,154 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>TON FIGHT</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TON FIGHT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        
+        .balance {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 25px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .balance-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #28a745;
+            margin-top: 5px;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 12px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-stars {
+            background: linear-gradient(45deg, #ff6b6b, #ffa500);
+            color: white;
+        }
+        
+        .btn-ton {
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            color: white;
+        }
+        
+        .btn-game {
+            background: linear-gradient(45deg, #28a745, #1e7e34);
+            color: white;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #6c757d;
+            font-size: 12px;
+        }
+    </style>
 </head>
 <body>
-  <div id="app"></div>
-  <script type="module" src="/src/main.jsx"></script>
+    <div class="container">
+        <h1>🎮 TON FIGHT</h1>
+        
+        <div class="balance">
+            <div>Баланс:</div>
+            <div class="balance-value" id="balance">0.00 TON</div>
+        </div>
+        
+        <button class="btn btn-stars" onclick="buyStars()">
+            ⭐ Купить Stars (100)
+        </button>
+        
+        <button class="btn btn-ton" onclick="connectTon()">
+            💰 Подключить TON кошелек
+        </button>
+        
+        <button class="btn btn-game" onclick="playRoulette()">
+            🎰 Играть в рулетку
+        </button>
+        
+        <div class="footer">
+            Играй честно • Выигрывай TON
+        </div>
+    </div>
+
+    <script>
+        // Имитация загрузки баланса
+        function loadBalance() {
+            fetch('/api/balance')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('balance').textContent = data.balance.toFixed(2) + ' TON';
+                })
+                .catch(() => {
+                    document.getElementById('balance').textContent = '0.00 TON';
+                });
+        }
+
+        // Покупка Stars
+        function buyStars() {
+            alert('Покупка Stars пока недоступна в демо-режиме');
+        }
+
+        // Подключение TON кошелька
+        function connectTon() {
+            alert('Подключение TON кошелька пока недоступно в демо-режиме');
+        }
+
+        // Игра в рулетку
+        function playRoulette() {
+            alert('Рулетка пока недоступна в демо-режиме');
+        }
+
+        // Загрузка при старте
+        loadBalance();
+    </script>
 </body>
 </html>

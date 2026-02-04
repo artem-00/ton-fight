@@ -1,0 +1,9 @@
+{
+  "name": "ton-fight",
+  "private": true,
+  "scripts": {
+    "dev:client": "cd apps/client && pnpm dev",
+    "dev:api": "cd apps/api && pnpm dev",
+    "dev:bot": "cd apps/bot && pnpm dev"
+  }
+}

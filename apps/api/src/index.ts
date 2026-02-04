@@ -1,11 +1,14 @@
+// apps/api/src/index.ts
 import { Hono } from 'hono';
-import { serve } from '@hono/node-server';
+import { starsRouter } from './routes/stars';
+import { giftsRouter } from './routes/gifts';
 
 const app = new Hono();
 
+app.route('/stars', starsRouter);
+app.route('/gifts', giftsRouter);
+
+// Health check
 app.get('/health', (c) => c.json({ status: 'ok' }));
 
-const port = parseInt(process.env.API_PORT || '3000');
-console.log(`🚀 API running on http://localhost:${port}`);
-
-serve({ fetch: app.fetch, port });
+export default app;

@@ -1,0 +1,15 @@
+{
+  "name": "payment",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@ton/ton": "^13.0.0",
+    "pg": "^8.0.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.0.0"
+  }
+}
